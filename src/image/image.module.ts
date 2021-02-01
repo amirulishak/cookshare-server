@@ -38,7 +38,6 @@ const imageFilter = function (req, file, cb) {
     MulterModule.registerAsync({
       useFactory: () => ({
         fileFilter: imageFilter,
-        dest: '/upload',
       }),
     }),
     AuthModule,
