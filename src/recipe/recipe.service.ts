@@ -47,7 +47,7 @@ export class RecipeService {
    * @param {User} user
    * @returns {Promise<Recipe>}
    */
-  async getRecipeById(id: number, user?: User): Promise<Recipe> {
+  async getRecipeById(id: string, user?: User): Promise<Recipe> {
     const findOptions = user ? { where: { id, creatorId: user.id } } : { id };
 
     const recipe = await this.recipeRepository.findOne(findOptions);
@@ -62,7 +62,7 @@ export class RecipeService {
    * @param {User} user
    * @returns {Promise<void>}
    */
-  async deleteRecipe(id: number, user: User): Promise<void> {
+  async deleteRecipe(id: string, user: User): Promise<void> {
     const result = await this.recipeRepository.delete({
       id,
       creatorId: user.id,
@@ -78,7 +78,7 @@ export class RecipeService {
    * @returns {Promise<Recipe>}
    */
   async updateRecipe(
-    id: number,
+    id: string,
     CreateRecipeDto: CreateRecipeDto,
     user: User,
   ): Promise<Recipe> {
@@ -94,7 +94,7 @@ export class RecipeService {
    * @returns {Promise<Comment>}
    */
   async addComment(
-    id: number,
+    id: string,
     CreateCommentDto: CreateCommentDto,
     user: User,
   ): Promise<Comment> {

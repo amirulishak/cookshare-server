@@ -79,7 +79,7 @@ export class UserService {
    * @param {User} subscriber
    * @returns {Promise<void>}
    */
-  async followUser(id: number, subscriber: User): Promise<void> {
+  async followUser(id: string, subscriber: User): Promise<void> {
     const user = await this.getUser({ id });
     if (!user) throw new NotFoundException(`User not found`);
 

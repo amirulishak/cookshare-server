@@ -15,8 +15,8 @@ import { Subscription } from './subscription.entity';
 
 @Entity()
 export class User extends BaseEntity {
-  @PrimaryGeneratedColumn()
-  readonly id!: number;
+  @PrimaryGeneratedColumn('uuid')
+  readonly id!: string;
 
   @Column({ unique: true, length: 255 })
   email!: string;

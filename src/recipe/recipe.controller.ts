@@ -76,7 +76,7 @@ export class RecipeController {
     summary: 'Retrieve a recipe by ID owned by current user.',
   })
   getRecipeById(
-    @Param('id', ParseIntPipe) id: number,
+    @Param('id', ParseIntPipe) id: string,
     @GetUser() user: User,
   ): Promise<Recipe> {
     return this.recipeService.getRecipeById(id, user);
@@ -94,7 +94,7 @@ export class RecipeController {
     summary: 'Delete a recipe by ID owned by current user.',
   })
   deleteRecipe(
-    @Param('id', ParseIntPipe) id: number,
+    @Param('id', ParseIntPipe) id: string,
     @GetUser() user: User,
   ): Promise<void> {
     return this.recipeService.deleteRecipe(id, user);
@@ -114,7 +114,7 @@ export class RecipeController {
     summary: 'Update a recipe by ID owned by current user.',
   })
   updateRecipe(
-    @Param('id', ParseIntPipe) id: number,
+    @Param('id', ParseIntPipe) id: string,
     @Body() recipeDto: CreateRecipeDto,
     @GetUser() user: User,
   ): Promise<Recipe> {
@@ -135,7 +135,7 @@ export class RecipeController {
     summary: 'Add a comment to a recipe by ID.',
   })
   addComment(
-    @Param('recipeId', ParseIntPipe) recipeId: number,
+    @Param('recipeId', ParseIntPipe) recipeId: string,
     @Body() commentDto: CreateCommentDto,
     @GetUser() user: User,
   ): Promise<Comment> {

@@ -18,8 +18,8 @@ export interface Steps {
 
 @Entity()
 export class Recipe extends BaseEntity {
-  @PrimaryGeneratedColumn()
-  readonly id: number;
+  @PrimaryGeneratedColumn('uuid')
+  readonly id: string;
 
   @Column({ length: 55 })
   name: string;
@@ -46,7 +46,7 @@ export class Recipe extends BaseEntity {
   isPublished: boolean;
 
   @Column()
-  creatorId: number;
+  creatorId: string;
 
   @CreateDateColumn()
   createdAt: Date;

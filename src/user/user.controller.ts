@@ -42,7 +42,7 @@ export class UserController {
    */
   @Get('/:id')
   @ApiOperation({ summary: 'Retrieve a user by ID' })
-  async getUserById(@Param('id', ParseIntPipe) id: number): Promise<User> {
+  async getUserById(@Param('id', ParseIntPipe) id: string): Promise<User> {
     const user = await this.userService.getUser({ id });
 
     if (!user) throw new NotFoundException(`User not found`);
@@ -89,7 +89,7 @@ export class UserController {
     description: 'The record has been successfully created.',
   })
   followUser(
-    @Param('id', ParseIntPipe) id: number,
+    @Param('id', ParseIntPipe) id: string,
     @GetUser() subscriber: User,
   ): Promise<void> {
     return this.userService.followUser(id, subscriber);

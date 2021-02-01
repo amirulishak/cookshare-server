@@ -10,17 +10,17 @@ import {
 
 @Entity()
 export class Comment extends BaseEntity {
-  @PrimaryGeneratedColumn()
-  readonly id: number;
+  @PrimaryGeneratedColumn('uuid')
+  readonly id: string;
 
   @Column({ length: 500 })
   text: string;
 
   @Column()
-  recipeId: number;
+  recipeId: string;
 
   @Column()
-  creatorId: number;
+  creatorId: string;
 
   @ManyToOne(() => User, (user) => user.comments, {
     onUpdate: 'CASCADE',

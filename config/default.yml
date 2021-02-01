@@ -1,10 +1,8 @@
 server:
   port: 3000
-  host: 0.0.0.0
 
 db:
   type: 'postgres'
-  host: 'cookshare.ctwibqcursru.ap-southeast-1.rds.amazonaws.com'
   port: 5432
   database: 'cookshare'
 
