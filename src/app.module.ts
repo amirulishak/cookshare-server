@@ -10,9 +10,12 @@ import { TypegooseModule } from 'nestjs-typegoose';
 @Module({
   imports: [
     TypeOrmModule.forRoot(typeOrmConfig),
-    TypegooseModule.forRoot('mongodb://localhost:27017/imageapi', {
-      useNewUrlParser: true,
-    }),
+    TypegooseModule.forRoot(
+      'mongodb+srv://mongo:mongo@cluster0.3omnd.mongodb.net/cookshare?retryWrites=true&w=majority',
+      {
+        useNewUrlParser: true,
+      },
+    ),
     RecipeModule,
     UserModule,
     AuthModule,

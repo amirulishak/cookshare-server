@@ -4,6 +4,7 @@ server:
 
 db:
   type: 'postgres'
+  host: 'cookshare.ctwibqcursru.ap-southeast-1.rds.amazonaws.com'
   port: 5432
   database: 'cookshare'
 
