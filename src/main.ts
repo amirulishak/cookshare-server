@@ -16,8 +16,17 @@ import { createDocument } from './config/swagger/swagger';
 
   // app.useStaticAssets(join(__dirname, '..', 'public'));
 
-  // if (process.env.NODE_ENV === 'development') app.enableCors();
-  app.enableCors();
+  if (process.env.NODE_ENV === 'development') app.enableCors();
+  else {
+    // const corsOptions = {
+    //   origin: '*',
+    // };
+
+    // app.enableCors(corsOptions);
+    const origin = process.env.ORIGIN || serverConfig.origin;
+    app.enableCors({ origin });
+    logger.log(`Accepting Origin : ${origin}`);
+  }
 
   app.setGlobalPrefix('api/v1');
   SwaggerModule.setup('api', app, createDocument(app));
