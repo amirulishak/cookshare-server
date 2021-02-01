@@ -17,6 +17,7 @@ import { createDocument } from './config/swagger/swagger';
   // app.useStaticAssets(join(__dirname, '..', 'public'));
 
   if (process.env.NODE_ENV === 'development') app.enableCors();
+  else app.enableCors({ origin: '175.142.170.8' });
 
   app.setGlobalPrefix('api/v1');
   SwaggerModule.setup('api', app, createDocument(app));
